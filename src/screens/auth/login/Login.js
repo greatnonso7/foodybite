@@ -4,20 +4,18 @@ import {
   StyleSheet,
   View,
   Text,
-  TextInput,
   StatusBar,
   Dimensions,
-  Alert,
   TouchableOpacity,
 } from 'react-native';
 import { StyleGuide } from 'components';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Input from 'components/Forms/Input';
 
 const { width, height } = Dimensions.get('screen');
 
-const Login = () => {
+const Login = ({ navigation }) => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <ImageBackground
         style={styles.image}
@@ -26,25 +24,9 @@ const Login = () => {
         <View style={styles.loginContainer}>
           <Text style={styles.logoText}>Foodybite</Text>
           <View style={styles.formContainer}>
-            <View style={styles.formControl}>
-              <Ionicons
-                color="white"
-                style={styles.formIcon}
-                name="mail-outline"
-                size={25}
-              />
-              <TextInput style={styles.formText} placeholder="Email" />
-            </View>
-            <View style={styles.formControl}>
-              <Ionicons
-                style={styles.formIcon}
-                color="white"
-                name="lock-closed-outline"
-                size={25}
-              />
-              <TextInput style={styles.formText} placeholder="Password" />
-            </View>
-            <TouchableOpacity onPress={() => Alert.alert('Hello World')}>
+            <Input placeholder="Email" iconName="mail-outline" />
+            <Input placeholder="Password" iconName="lock-closed-outline" />
+            <TouchableOpacity onPress={() => navigation.navigate('Forgot')}>
               <Text style={styles.forgotText}>Forgot Password?</Text>
             </TouchableOpacity>
           </View>
@@ -63,6 +45,9 @@ const Login = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   image: {
     height: '100%',
     width: '100%',

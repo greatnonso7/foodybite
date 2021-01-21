@@ -1,8 +1,13 @@
 import React from 'react';
-import { Forgot } from './src/screens/auth/forgot';
+import { NavigationContainer } from '@react-navigation/native';
+import { Auth } from 'screens/auth';
 
-const App = () => {
-  return <Forgot />;
-};
+function App() {
+  return (
+    <NavigationContainer>
+      <Auth />
+    </NavigationContainer>
+  );
+}
 
 export default App;

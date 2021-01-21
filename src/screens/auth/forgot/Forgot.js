@@ -13,7 +13,7 @@ import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import { StyleGuide, Button } from 'components';
 import { Input } from 'components/Forms';
 
-const Forgot = () => {
+const Forgot = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -22,7 +22,9 @@ const Forgot = () => {
         source={require('assets/images/login.png')}>
         <View style={styles.overlay} />
         <SafeAreaView>
-          <TouchableOpacity style={styles.iconNavigator}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.iconNavigator}>
             <AntDesignIcon name="left" size={35} color="white" />
           </TouchableOpacity>
           <View style={styles.forgotContainer}>
@@ -36,9 +38,8 @@ const Forgot = () => {
           </View>
           <View style={styles.formContainer}>
             <Input placeholder="Email" iconName="mail-outline" />
+            <Button title="Send" />
           </View>
-          <View styles={styles.buttonContainer} />
-          <Button title="Send" />
         </SafeAreaView>
       </ImageBackground>
     </View>
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   formContainer: {
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: StyleGuide.spacing * 10,
   },
