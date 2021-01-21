@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Login } from './src/screens/auth/login';
+import { Forgot } from './src/screens/auth/forgot';
 
 const App = () => {
-  return <Login />;
+  return <Forgot />;
 };
 
 export default App;

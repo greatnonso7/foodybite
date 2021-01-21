@@ -2,6 +2,7 @@ const StyleGuide = {
   spacing: 8,
   palette: {
     primary: '#5663FF',
+    white: '#FFFFFF',
   },
   typography: {
     body: {
