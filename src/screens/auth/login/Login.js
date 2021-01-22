@@ -31,7 +31,9 @@ const Login = ({ navigation }) => {
             </TouchableOpacity>
           </View>
           <View style={styles.actionContainer}>
-            <TouchableOpacity style={styles.actionLoginButton}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Gps')}
+              style={styles.actionLoginButton}>
               <Text style={styles.actionLoginText}>Login</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.actionRegisterContainer}>

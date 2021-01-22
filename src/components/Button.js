@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   actionLoginButton: {
     backgroundColor: '#5663FF',
     height: StyleGuide.spacing * 7,
-    width: width / 1.3,
+    width: width / 1.2,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
