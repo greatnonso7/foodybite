@@ -11,7 +11,6 @@ import {
   Platform,
 } from 'react-native';
 import { StyleGuide, Button } from 'components';
-import LinearGradient from 'react-native-linear-gradient';
 
 const Gps = ({ navigation }) => {
   return (

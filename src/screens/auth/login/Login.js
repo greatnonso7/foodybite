@@ -36,7 +36,9 @@ const Login = ({ navigation }) => {
               style={styles.actionLoginButton}>
               <Text style={styles.actionLoginText}>Login</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.actionRegisterContainer}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Register')}
+              style={styles.actionRegisterContainer}>
               <Text style={styles.actionRegisterText}>Create New Account</Text>
             </TouchableOpacity>
           </View>

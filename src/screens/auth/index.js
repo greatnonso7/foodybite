@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from './login';
 import Forgot from './forgot';
 import Gps from './gps';
+import Register from './register';
 
 const AuthenticationStack = createStackNavigator();
 
@@ -14,6 +15,7 @@ export const Auth = () => {
       <AuthenticationStack.Screen name="Login" component={Login} />
       <AuthenticationStack.Screen name="Forgot" component={Forgot} />
       <AuthenticationStack.Screen name="Gps" component={Gps} />
+      <AuthenticationStack.Screen name="Register" component={Register} />
     </AuthenticationStack.Navigator>
   );
 };
