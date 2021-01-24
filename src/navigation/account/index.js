@@ -1,8 +1,14 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Feather';
-import { Home } from '../../screens/home';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {
+  Home,
+  Bookmark,
+  Notification,
+  Profile,
+  Review,
+} from '../../screens/home';
 
 const AppTabs = createBottomTabNavigator();
 
@@ -15,20 +21,20 @@ const Account = () => {
           let iconName;
           if (route.name === 'Home') {
             iconName = 'home';
-          } else if (route.name === 'Bookmarks') {
-            iconName = 'bookmarks';
+          } else if (route.name === 'Bookmark') {
+            iconName = 'heart';
           } else if (route.name === 'Review') {
-            iconName = 'review';
-          } else if (route.name === 'Notifications') {
-            iconName = 'notifications';
+            iconName = 'send';
+          } else if (route.name === 'Notification') {
+            iconName = 'bell';
           } else if (route.name === 'Profile') {
-            iconName = 'profile';
+            iconName = 'user';
           }
           return (
             <Icon
               name={iconName}
-              size={!focused ? 15 : 30}
-              color={focused ? '#5663FF' : '#FFFFFF'}
+              size={!focused ? 30 : 30}
+              color={focused ? '#5663FF' : null}
             />
           );
         },
@@ -39,6 +45,10 @@ const Account = () => {
         showLabel: false,
       }}>
       <AppTabs.Screen name="Home" component={Home} />
+      <AppTabs.Screen name="Bookmark" component={Bookmark} />
+      <AppTabs.Screen name="Review" component={Review} />
+      <AppTabs.Screen name="Notification" component={Notification} />
+      <AppTabs.Screen name="Profile" component={Profile} />
     </AppTabs.Navigator>
   );
 };
