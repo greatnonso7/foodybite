@@ -36,6 +36,7 @@ const Account = () => {
       tabBarOptions={{
         activeTintColor: '#5663FF',
         style: styles.root,
+        showLabel: false,
       }}>
       <AppTabs.Screen name="Home" component={Home} />
     </AppTabs.Navigator>
