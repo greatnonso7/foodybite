@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { StyleGuide, Button } from 'components';
 
-const Gps = ({ navigation }) => {
+const Gps = ({ navigation: { goBack, navigate } }) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -61,7 +61,9 @@ const Gps = ({ navigation }) => {
               near you.
             </Text>
             <View style={{ marginTop: StyleGuide.spacing * 7 }}>
-              <Button title="Turn on GPS" />
+              <TouchableOpacity onPress={() => console.log('Hello world')}>
+                <Button title="Turn on GPS" />
+              </TouchableOpacity>
             </View>
           </View>
         </SafeAreaView>
