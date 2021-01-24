@@ -190,11 +190,11 @@ const Home = () => {
         </View>
 
         <FlatList
-          data={data}
-          renderItem={() => (
+          data={category}
+          renderItem={({ item }) => (
             <View style={styles.categoryContainer}>
               <ImageBackground
-                source={require('../../assets/images/1.jpeg')}
+                source={item.image}
                 style={styles.imageCategory}
               />
               <View style={styles.overlay} />
@@ -211,7 +211,7 @@ const Home = () => {
                     fontSize: 20,
                     color: 'white',
                   }}>
-                  Italian
+                  {item.category}
                 </Text>
               </View>
             </View>
