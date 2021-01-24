@@ -4,12 +4,10 @@ import Onboarding from './onboarding';
 
 const Stack = createStackNavigator();
 
-const AppNavigation = () => {
+export const AppNavigation = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator headerMode="none">
       <Stack.Screen name="Onboarding" component={Onboarding} />
     </Stack.Navigator>
   );
 };
-
-export default AppNavigation;
