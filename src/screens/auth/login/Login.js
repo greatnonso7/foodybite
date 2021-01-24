@@ -32,7 +32,7 @@ const Login = ({ navigation }) => {
           </View>
           <View style={styles.actionContainer}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Home', { screen: 'Home' })}
+              onPress={() => navigation.navigate('Account', { screen: 'Home' })}
               style={styles.actionLoginButton}>
               <Text style={styles.actionLoginText}>Login</Text>
             </TouchableOpacity>
