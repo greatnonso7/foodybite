@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TextInput,
   Image,
+  ImageBackground,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleGuide } from 'components';
@@ -44,6 +45,50 @@ const data = [
     image: require('assets/images/3.jpg'),
     status: 'Close',
     rating: '4.3',
+  },
+];
+
+const category = [
+  {
+    id: '1',
+    category: 'Italian',
+    image: require('assets/images/1.jpeg'),
+  },
+  {
+    id: '2',
+    category: 'Chinese',
+    image: require('assets/images/2.jpg'),
+  },
+  {
+    id: '3',
+    category: 'Mexican',
+    image: require('assets/images/3.jpg'),
+  },
+];
+const profile = [
+  {
+    id: '1',
+    image: require('assets/images/profile1.jpg'),
+  },
+  {
+    id: '2',
+    image: require('assets/images/profile2.jpeg'),
+  },
+  {
+    id: '3',
+    image: require('assets/images/profile3.jpeg'),
+  },
+  {
+    id: '4',
+    image: require('assets/images/profile4.jpeg'),
+  },
+  {
+    id: '5',
+    image: require('assets/images/profile5.jpeg'),
+  },
+  {
+    id: '6',
+    image: require('assets/images/profile6.jpeg'),
   },
 ];
 
@@ -138,6 +183,63 @@ const Home = () => {
           showsHorizontalScrollIndicator={false}
         />
       </View>
+      <View style={styles.restaurantContainer}>
+        <View style={styles.displayRestaurant}>
+          <Text style={styles.restaurantTrendingText}>Category</Text>
+          <Text style={styles.restaurantSeeAllText}>See all (9)</Text>
+        </View>
+
+        <FlatList
+          data={data}
+          renderItem={() => (
+            <View style={styles.categoryContainer}>
+              <ImageBackground
+                source={require('../../assets/images/1.jpeg')}
+                style={styles.imageCategory}
+              />
+              <View style={styles.overlay} />
+              <View
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  position: 'relative',
+                  bottom: StyleGuide.spacing * 7,
+                }}>
+                <Text
+                  style={{
+                    fontFamily: 'JosefinSans-Bold',
+                    fontSize: 20,
+                    color: 'white',
+                  }}>
+                  Italian
+                </Text>
+              </View>
+            </View>
+          )}
+          horizontal
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
+
+      <View style={styles.restaurantContainer}>
+        <View style={styles.displayRestaurant}>
+          <Text style={styles.restaurantTrendingText}>Friends</Text>
+          <Text style={styles.restaurantSeeAllText}>See all (56)</Text>
+        </View>
+
+        <FlatList
+          data={profile}
+          renderItem={({ item }) => (
+            <View key={item.id} style={styles.categoryContainer}>
+              <Image source={item.image} style={styles.imageProfile} />
+            </View>
+          )}
+          horizontal
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -146,6 +248,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginHorizontal: StyleGuide.spacing * 2,
+    // backgroundColor: 'black'
   },
   inputContainer: {
     flexDirection: 'row',
@@ -183,7 +286,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   flatlistContainer: {
-    marginTop: StyleGuide.spacing * 3,
+    marginTop: StyleGuide.spacing * 2,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -221,6 +324,27 @@ const styles = StyleSheet.create({
   itemAddress: {
     fontFamily: 'JosefinSans-Regular',
     fontSize: 14,
+  },
+  categoryContainer: {
+    marginRight: StyleGuide.spacing * 2,
+    marginTop: StyleGuide.spacing * 2,
+  },
+  imageCategory: {
+    height: 100,
+    width: 115,
+    borderRadius: 100,
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    opacity: 0.7,
+    // borderRadius: 20,
+    height: 100,
+    backgroundColor: 'black',
+  },
+  imageProfile: {
+    height: 50,
+    width: 50,
+    borderRadius: 100,
   },
 });
 
