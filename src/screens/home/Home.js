@@ -14,7 +14,98 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { FlatList } from 'react-native-gesture-handler';
 
+const data = [
+  {
+    id: '1',
+    name: 'Happy Bones',
+    category: 'Italian',
+    distant: '1.2km',
+    address: '394 Broome St, New York, NY 10013, USA',
+    image: require('assets/images/1.jpeg'),
+    status: 'Open',
+    rating: '4.6',
+  },
+  {
+    id: '2',
+    name: 'Uncle Bones',
+    category: 'Chinese',
+    distant: '2.5km',
+    address: '7 Spring St, New York, NY 10012, USA',
+    image: require('assets/images/2.jpg'),
+    status: 'Open',
+    rating: '4.1',
+  },
+  {
+    id: '3',
+    name: 'Happy Bones',
+    category: 'Italian',
+    distant: '1.2km',
+    address: '394 Broome St, New York, NY 10113, USA',
+    image: require('assets/images/3.jpg'),
+    status: 'Close',
+    rating: '4.3',
+  },
+];
+
+const Item = ({ name, image, address, distant, category }) => {
+  return (
+    <View style={styles.flatlistContainer}>
+      <Image style={styles.image} source={image} resizeMode="stretch" />
+      <View style={styles.cardFooter}>
+        <View style={{ marginLeft: 10 }}>
+          <View
+            style={{
+              flexDirection: 'row',
+            }}>
+            <Text style={styles.itemName}>{name}</Text>
+            <View
+              style={{
+                height: 20,
+                width: 60,
+                marginLeft: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 50,
+                backgroundColor: '#FF5673',
+              }}>
+              <Text style={{ color: 'white' }}>{category}</Text>
+            </View>
+            <View
+              style={{
+                height: 20,
+                width: 50,
+                marginLeft: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 50,
+                backgroundColor: '#848DFF',
+              }}>
+              <Text
+                style={{
+                  color: 'white',
+                }}>
+                {distant}
+              </Text>
+            </View>
+          </View>
+          <Text style={styles.itemAddress}>{address}</Text>
+        </View>
+      </View>
+    </View>
+  );
+};
+
 const Home = () => {
+  const renderItem = ({ item }) => (
+    <Item
+      key={item.id}
+      image={item.image}
+      name={item.name}
+      address={item.address}
+      category={item.category}
+      distant={item.distant}
+    />
+  );
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -38,17 +129,14 @@ const Home = () => {
           </Text>
           <Text style={styles.restaurantSeeAllText}>See all (45)</Text>
         </View>
-        <View style={styles.flatlistContainer}>
-          <Image
-            style={styles.image}
-            source={require('../../assets/images/1.jpeg')}
-            resizeMode="stretch"
-          />
-          <View style={styles.cardFooter}>
-            <Text>Happy Bones</Text>
-          </View>
-        </View>
-        <FlatList />
+
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          horizontal
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+        />
       </View>
     </SafeAreaView>
   );
@@ -103,22 +191,36 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
     elevation: 5,
+    position: 'relative',
+    marginRight: StyleGuide.spacing * 10,
   },
   image: {
     height: 200,
     // borderWidth: 1,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    width: '85%',
+    width: '120%',
   },
   cardFooter: {
     backgroundColor: 'white',
-    width: '85%',
+    width: '120%',
     height: 80,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  itemName: {
+    color: '#3E3F68',
+    fontFamily: 'JosefinSans-Bold',
+    fontSize: 20,
+    marginBottom: StyleGuide.spacing * 2,
+  },
+  itemAddress: {
+    fontFamily: 'JosefinSans-Regular',
+    fontSize: 14,
   },
 });
 
