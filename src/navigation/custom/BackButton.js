@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
+import { useNavigation } from '@react-navigation/native';
 
 const BackButton = () => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.backButton}>
+    <TouchableOpacity
+      onPress={() => navigation.goBack()}
+      style={styles.backButton}>
       <AntDesignIcon name="arrowleft" size={35} color="#222455" />
     </TouchableOpacity>
   );

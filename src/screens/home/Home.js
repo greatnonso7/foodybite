@@ -5,16 +5,15 @@ import {
   Text,
   StatusBar,
   StyleSheet,
-  TextInput,
   Image,
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleGuide } from 'components';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { FlatList } from 'react-native-gesture-handler';
+
+import { Search } from 'components/Forms';
 
 const data = [
   {
@@ -155,19 +154,7 @@ const Home = ({ navigation: { goBack, navigate } }) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
-      <View style={styles.inputContainer}>
-        <EvilIcons
-          style={[styles.icon, { marginLeft: 5 }]}
-          name="search"
-          size={35}
-        />
-        <TextInput style={styles.inputValue} placeholder="Find Restaurants" />
-        <Ionicons
-          style={[styles.icon, { marginRight: 15 }]}
-          name="filter-outline"
-          size={35}
-        />
-      </View>
+      <Search placeholder="Find Restaurants" />
       <View style={styles.restaurantContainer}>
         <View style={styles.displayRestaurant}>
           <Text style={styles.restaurantTrendingText}>
@@ -252,24 +239,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: StyleGuide.spacing * 2,
     // backgroundColor: 'black'
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderRadius: 10,
-    marginTop: StyleGuide.spacing * 2,
-    height: StyleGuide.spacing * 6,
-    borderColor: '#E8E8E8',
-  },
-  inputValue: {
-    fontSize: 19,
-    marginRight: StyleGuide.spacing * 15,
-    fontFamily: 'JosefinSans-Regular',
-  },
-  icon: {
-    color: '#B6BED4',
   },
   restaurantContainer: {
     marginTop: StyleGuide.spacing * 4,
