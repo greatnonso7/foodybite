@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
@@ -15,51 +16,7 @@ import { FlatList } from 'react-native-gesture-handler';
 
 import { Search } from 'components/Forms';
 
-import { data } from '../../constants';
-
-const category = [
-  {
-    id: '1',
-    category: 'Italian',
-    image: require('assets/images/1.jpeg'),
-  },
-  {
-    id: '2',
-    category: 'Chinese',
-    image: require('assets/images/2.jpg'),
-  },
-  {
-    id: '3',
-    category: 'Mexican',
-    image: require('assets/images/3.jpg'),
-  },
-];
-const profile = [
-  {
-    id: '1',
-    image: require('assets/images/profile1.jpg'),
-  },
-  {
-    id: '2',
-    image: require('assets/images/profile2.jpeg'),
-  },
-  {
-    id: '3',
-    image: require('assets/images/profile3.jpeg'),
-  },
-  {
-    id: '4',
-    image: require('assets/images/profile4.jpeg'),
-  },
-  {
-    id: '5',
-    image: require('assets/images/profile5.jpeg'),
-  },
-  {
-    id: '6',
-    image: require('assets/images/profile6.jpeg'),
-  },
-];
+import { data, profile, category } from '../../constants';
 
 const Item = ({ name, image, address, distant, category }) => {
   return (
