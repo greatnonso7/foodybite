@@ -10,6 +10,7 @@ module.exports = {
           screens: './src/screens',
           navigation: './src/navigation',
           components: './src/components',
+          constants: './src/constants',
           images: './src/assets/images',
           'common-components': './src/common-components',
           state: './src/state',

@@ -12,7 +12,7 @@ const Trending = () => {
       <View style={styles.textCaption}>
         <Text style={styles.textHeader}>Trending Restaurants</Text>
       </View>
-      <Search placeholder="Search" />
+      <Search placeholder="Search              " />
     </SafeAreaView>
   );
 };
