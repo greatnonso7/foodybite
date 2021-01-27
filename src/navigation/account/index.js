@@ -2,13 +2,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {
-  Home,
-  Bookmark,
-  Notification,
-  Profile,
-  Review,
-} from '../../screens/home';
+import { Bookmark, Notification, Profile, Review } from '../../screens/home';
+import Home from './home';
 
 const AppTabs = createBottomTabNavigator();
 

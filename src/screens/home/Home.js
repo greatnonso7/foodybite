@@ -8,6 +8,7 @@ import {
   TextInput,
   Image,
   ImageBackground,
+  TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleGuide } from 'components';
@@ -140,7 +141,7 @@ const Item = ({ name, image, address, distant, category }) => {
   );
 };
 
-const Home = () => {
+const Home = ({ navigation: { goBack, navigate } }) => {
   const renderItem = ({ item }) => (
     <Item
       key={item.id}
@@ -172,7 +173,9 @@ const Home = () => {
           <Text style={styles.restaurantTrendingText}>
             Trending Restaurants
           </Text>
-          <Text style={styles.restaurantSeeAllText}>See all (45)</Text>
+          <TouchableOpacity onPress={() => navigate('Trending')}>
+            <Text style={styles.restaurantSeeAllText}>See all (45)</Text>
+          </TouchableOpacity>
         </View>
 
         <FlatList
